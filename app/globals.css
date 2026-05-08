@@ -1,26 +1,75 @@
-@import "tailwindcss";
+@import 'tailwindcss';
+@import '@fontsource/space-grotesk';
+
+@theme {
+  --color-background: #06141B;
+  --color-surface: #11212D;
+  --color-surface-raised: #253745;
+  --color-border: #4A5C6A;
+  --color-text-secondary: #9BA8AB;
+  --color-text-primary: #CCD0CF;
+  --color-accent: #4FC9DA;
+  --font-sans: 'Space Grotesk', system-ui, sans-serif;
+}
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #06141B;
+  --surface: #11212D;
+  --surface-raised: #253745;
+  --border: #4A5C6A;
+  --text-secondary: #9BA8AB;
+  --text-primary: #CCD0CF;
+  --accent: #4FC9DA;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+html { scroll-behavior: smooth; }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: #06141B;
+  color: #CCD0CF;
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background-color: #4FC9DA33;
+  color: #4FC9DA;
+}
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #06141B; }
+::-webkit-scrollbar-thumb { background: #4A5C6A; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #4FC9DA; }
+
+/* Hide scrollbar visually while keeping programmatic scrolling */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* Chart navigation slider */
+.chart-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 4px;
+  border-radius: 2px;
+  background: #253745;
+  outline: none;
+  cursor: pointer;
+}
+.chart-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #4FC9DA;
+  cursor: pointer;
+}
+.chart-slider::-moz-range-thumb {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #4FC9DA;
+  cursor: pointer;
+  border: none;
 }
